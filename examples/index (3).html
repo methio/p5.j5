@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>p5.j5 v2 — exemple</title>
+  <style>
+    body { margin: 0; padding: 16px; font-family: system-ui, sans-serif; }
+    button { font-size: 16px; padding: 8px 14px; margin-bottom: 12px; cursor: pointer; }
+  </style>
+
+  <!-- 1) p5.js v2 (pensez à fixer une version précise en production) -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@2/lib/p5.min.js"></script>
+  <!-- 2) p5.j5 v2 : doit être chargé APRÈS p5.js -->
+  <script src="../../p5.j5.js"></script>
+</head>
+<body>
+  <main></main>
+
+  <script>
+    /*
+     * Montage :
+     *   - LED sur la broche 13 (LED intégrée de l'Uno)
+     *   - photorésistance (diviseur de tension) sur A0
+     *   - bouton entre la broche 2 et GND (pull-up interne activée par isPullup)
+     */
+    let board, led, light, button;
+    let lastMessage = "En attente de connexion…";
+
+    // setup() peut être async dans p5.js v2 ; ici il n'a pas besoin d'attendre la carte.
+    function setup() {
+      createCanvas(windowWidth - 32, 360);
+      textAlign(CENTER, CENTER);
+
+      board = createBoard();          // five.Board suivi par p5 (fermé quand le sketch est supprimé)
+      createConnectButton(board);     // le clic ouvre la fenêtre de choix du port série (geste utilisateur)
+
+      // Les composants peuvent être créés avant la connexion : ils s'initialisent à l'ouverture du port.
+      led = new five.Led(13);
+      light = new five.Light("A0");
+      button = new five.Button({ pin: 2, isPullup: true });
+
+      board.on("ready", () => {
+        lastMessage = "Connecté : " + board.firmware.name;
+        led.blink(500);               // la LED clignote dès que la carte est prête
+      });
+      board.on("error", (err) => (lastMessage = "Erreur : " + err.message));
+      board.on("close", () => (lastMessage = "Déconnecté"));
+    }
+
+    function draw() {
+      // light.level : 0 (sombre) à 100 (lumineux)
+      const level = light.level;
+      background(map(level, 0, 100, 20, 255));
+
+      // Disque dont le diamètre suit la lumière ; il devient rouge quand le bouton est enfoncé.
+      noStroke();
+      fill(button.isDown ? color(230, 60, 60) : color(40, 120, 230));
+      circle(width / 2, height / 2, map(level, 0, 100, 40, 260));
+
+      fill(level > 55 ? 0 : 255);
+      textSize(22);
+      text("Lumière : " + level + " %", width / 2, 40);
+      textSize(14);
+      text(lastMessage, width / 2, height - 24);
+    }
+
+    // Callbacks globaux, dans l'esprit de mousePressed() / keyPressed() (déclarés avec « function »).
+    function buttonPressed(btn) {
+      led.stop().on();                // appui : LED fixe
+    }
+    function buttonReleased(btn) {
+      led.blink(500);                 // relâché : la LED clignote à nouveau
+    }
+    function sensorChanged(sensor) {
+      // appelé à chaque variation d'un Sensor / Light (ici non utilisé : draw() lit light.level)
+    }
+  </script>
+</body>
+</html>
