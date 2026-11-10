@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>    
+
+    <!--  we load ml5.js library, it contains bodypose model-->
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    
+    <!-- P5 lib -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.min.js"></script>
+
+    <!-- P5.sound lib -->
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+
+    <!-- we load the script page-->
+    <script src="script.js" defer></script>
+
+    <!-- johnny five-->
+    <!-- <script src="https://unpkg.com/p5.j5@1.2.0/dist/p5.j5.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/methio/p5.j5@latest/j5.js" defer></script>
+
+    
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+        <!-- your canvas will load here -->
+        <main class="has-shadow"></main>
+        <!-- a div to add controls -->
+        <!-- <div id="controls" class="has-shadow">
+            <button id="start-button" >Start</button>
+            <input type="range" id="sensitivity-slider" min="1" max="10" value="5">
+            <button id="connect-button" type="button">Connect Arduino</button>
+            <span id="connection-status" role="status" aria-live="polite">Arduino not connected</span>
+        </div> -->
+
+  </body>
+</html>
