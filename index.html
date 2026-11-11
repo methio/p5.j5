@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>p5.j5</title>
+  <link rel="icon" type="image/png" sizes="50x50" href="images/favicon2.png">
+  <title>p5.j5 documentation</title>
 
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,16 +27,15 @@
   <div id="left-col" class="flex column">
 
     <h4>Getting started</h4>
-    <a href="#principe">Principe</a>
-    <a href="#">Comment utiliser ce repo</a>  
+    <a href="#principe">How it works</a>
+    <a href="#repo">How to use this repository</a>  
 
     <h4>Minimal setup</h4>
-    <a href="#">Overview</a>
     <a href="#arduino">Arduino</a>
-    <a href="#">MITid students template</a>
-    <a href="#">HTML/CSS/JS</a>  
+    <a href="#templateMITid">MITid students template</a>
+    <a href="#templateBase">base template</a>  
     
-    <h4>Intputs</h4>
+    <h4>Inputs</h4>
     <a href="#button">Button</a>
     <a href="#sensor">Sensor</a>
     <a href="#joystick">Joystick</a> 
@@ -44,11 +44,11 @@
     <a href="#led">Led</a>
     <a href="#rgb">Led.RGB</a>
     <a href="#servo">Servo</a>
-    <a href="#motor">Motor</a>
+    <a href="#motor">[WIP]Motor</a>
     <a href="#piezo">Piezo</a>                       
     <a href="#lcd">LCD</a>   
   
-  <h4><a href="#depannage">Dépannage</a></h4>
+  <h4><a href="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" target="_blank">Troubleshooting</a></h4>
 
 </div>
 
@@ -56,82 +56,87 @@
 
     <img 
         src="images/cover.png"
-        alt="bip boup">
+        alt="bip boup"
+        class="full-width">
 
-    <header>
+    <!-- <header>
       <h1>p5.j5 <span class="muted">v2</span></h1>
-      <p>Pilotez votre arduino simplement depuis un sketch p5.js</p>
-      <p>Cette bibliothèque est une mise à jour de monteslu/p5.j5 (basée sur Johnny-Five).</p>   
-    </header>
+      <p>Easily control your Arduino from a p5.js sketch.</p>
+      <p>This library is an update of monteslu/p5.j5 (based on Johnny-Five).</p>   
+    </header> -->
 
     <main>
     <h2 id="getting-Started">Getting started</h2>
 
-    <h3 id="principe">Comment ça marche ?</h3>
-    <p>SCHEMA DES BRIQUES TECHNIQUES</p>
+    <h3 id="principe">How does it work?</h3>
+    <p>TECHNICAL SYSTEM DIAGRAM</p>
     <!-- <pre><code>Capteurs / actionneurs ⇄ Arduino (StandardFirmataPlus) ⇄ câble USB ⇄ navigateur (Web Serial) ⇄ p5.j5 ⇄ votre sketch p5.js</code></pre> -->
-    <p><strong>Firmata</strong> est un « langage commun » : l’Arduino comprend des ordres standardisés (« mets la broche 13 à 1 », « donne-moi la valeur de A0 »). Pas besoin d'écrire de programme Arduino : le sketch Firmata est téléversé <em>une seule fois</em>, et vous intéragissez avec la carte depuis votre page web.</p>
-    <p class="muted">Veillez à utiliser le navigateur Chrome. <b>Firefox et Safari ne fonctionneront pas.</b></p>
+    <p><strong>Firmata</strong> is a “common language”: the Arduino understands standardized commands (“set pin 13 to 1”, “give me the value of A0”). There is no need to write an Arduino program: the Firmata sketch is uploaded <em>once</em>, and you interact with the board from your web page.</p>
+    <p class="muted">Make sure to use the Chrome browser. <b>Firefox and Safari will not work.</b></p>
 
-    <h3 id="principe">Comment utiliser ce repo ?</h3>
-    <p>Si vous êtes un étudiant MITid: suivez les étapes Minimal setup (arduino + MITid students template) UNE SEULE FOIS. Ensuite, quand vous voulez créer un circuit, parcourez les sections Inputs et Outputs.</p>
+    <h3 id="repo">How to use this repository</h3>
+    <p>If you are a MITid student, follow the Minimal setup steps (Arduino + MITid students template) ONCE. After that, whenever you want to build a circuit, browse the Inputs and Outputs sections.</p>
 
 
 
-    <h2>Minimal setup</h2>
+    <h2 id="minimal-setup">Minimal setup</h2>
     <h3 id="arduino">Arduino</h3>
 
-    <p class="important">Ces étapes ne sont à faire qu'une seule fois par carte arduino. Il n'est pas nécessaire de téléverser Firmata pour chaque nouveau circuit.</p>
+    <p class="important">These steps only need to be completed once per Arduino board. You do not need to upload Firmata for every new circuit.</p>
 
     <ol>
       <li>
-        <p>Ouvrez l'IDE d'arduino.</p>
+        <p>Open the Arduino IDE.</p>
       </li>
       <li>
         <p>Make sure you have the firmata library installed.</p>
         <img 
             src="images/library.png"
             alt="check library"
-            class="full-width"
+            class="full-width green-border"
           >
       </li>
       <li>
-          <p>Ouvrez <strong>Fichier → Exemples → Firmata → StandardFirmataPlus</strong></p>
+          <p>Open <strong>File → Examples → Firmata → StandardFirmataPlus</strong></p>
           <img 
             src="images/load-firmata-example.png"
             alt="load firmata"
-            class="full-width"
+            class="full-width green-border"
           >           
       </li>
       
       <li>
-        <p>Dans l’IDE Arduino, branchez la carte et choisissez sa <em>Carte</em> et son <em>Port</em>.</p>
+        <p>In the Arduino IDE, connect the board and select its <em>Board</em> and <em>Port</em>.</p>
         <img 
             src="images/board-port.png"
             alt="select board and port"
-            class="full-width"
+            class="full-width green-border"
           >      
       </li>
-      <li>Cliquez sur <strong>Téléverser</strong>. C’est fini : la carte est « commandable à distance ».</li>
-      <li>Assurez vous que le <strong>Moniteur série</strong> de l’IDE est bien fermé. Un seul programme à la fois peut utiliser le port.</li>
+      <li>Click <strong>Upload</strong>. That’s it: the board can now be controlled remotely.</li>
+      <li>Make sure the IDE’s <strong>Serial Monitor</strong> is closed. Only one program at a time can use the port.</li>
     </ol>
 
     <h3 id="templateMITid">MITid student template</h3>
-    <p>Maintenant que la partie "hardware est prête, vous pouvez aller sur le repo <a href="https://github.com/methio/MITID-medieval-bootcamp" target="_blank">MITid medieval bootcamp template↗</a> pour préparer la partie web. Gardez cette page ouverte pour accéder à la documentation des composants électroniques et leur utilisation dans vos projets.</p>
+    <p>Now that the hardware is ready, go to the <a href="https://github.com/methio/MITID-medieval-bootcamp" target="_blank">MITid medieval bootcamp template↗</a> repository to set up the web side. Keep this page open to refer to the electronic component documentation and learn how to use them in your projects.</p>
 
-    <h3 id="templateBase">template de base pour votre projet</h3>
-    <p class="infos">Vous pouvez utilisez le template html, css et javascript présent dans le fichier d'exemple: <a href="example/" target="_blank">example↗</a></p>
-    
-    <h3 id="connexion">Connecter la carte : le bouton d’ouverture du port</h3>
-    <p>Pour des raisons de sécurité, le navigateur n’ouvre un port série qu’après un <strong>clic de l’utilisateur</strong> : c’est lui qui choisit l’Arduino dans une fenêtre. Il faut donc un bouton.</p>
-    
+    <h3 id="templateBase">Basic project template</h3>
+    <p class="callout infos">You can use the HTML, CSS, and JavaScript template in the <a href="example/" target="_blank">example file↗</a>.</p>
+    <p>Add the following line in your html head to load the library</p>
+    <pre><code class="language-html">
+      &lt;head&gt;
+        &lt;!-- load the p5.j5 library --&gt;
+        &lt;script src="https://cdn.jsdelivr.net/gh/methio/p5.j5@latest/j5.js" defer&gt;&lt;/script&gt;
+      &lt;/head&gt;
+    </code></pre>
+    <p>For security reasons, the browser only opens a serial port after a <strong>user click</strong>: the user then selects the Arduino in a dialog. That’s why you need a button.</p>
     <pre><code class="language-javascript">
     let board;
 
     function setup() {
-      createCanvas(400, 300);       // on crée un canvas
-      board = createBoard();        // on crée la "carte"
-      createConnectButton(board);   // crée le bouton « Connecter l'Arduino »
+      createCanvas(400, 300);       // create a canvas
+      board = createBoard();        // create the "board"
+      createConnectButton(board);   // create the "Connect Arduino" button
     }
 
     function draw() { 
@@ -139,19 +144,19 @@
     }
     </code></pre>
 
-    <p>Ensuite, pour ajouter ces composants. Dans cet exemple, on contrôle une led branchée sur le GPIO 2.</p>
+    <p>Next, add components. In this example, we control an LED connected to GPIO 2.</p>
 
     <pre><code class="language-javascript">
     let board;
-    let led;                        // une variable pour notre led
+    let led;                        // a variable for our LED
 
     function setup() {
       createCanvas(400, 300);
       board = createBoard();
       createConnectButton(board);
 
-      led = new five.Led(2);        // on peut créer les composants avant la connexion :
-      led.blink(500);               // ils s'activeront dès que la carte sera prête
+      led = new five.Led(2);        // components can be created before connecting:
+      led.blink(500);               // they will activate as soon as the board is ready
     }
 
     function draw() { 
@@ -159,27 +164,27 @@
     }
     </code></pre>
         
-    <!-- à placer ailleurs
+    <!-- move elsewhere
       <ul class="api">
-        <li><strong>Méthodes</strong> : <code>connect()</code>, <code>disconnect()</code>, <code>autoConnect()</code> (se reconnecte sans clic à un port déjà autorisé), <code>samplingInterval(ms)</code></li>
+        <li><strong>Methods</strong>: <code>connect()</code>, <code>disconnect()</code>, <code>autoConnect()</code> (reconnects without a click to a previously authorized port), <code>samplingInterval(ms)</code></li>
       </ul> 
     -->
 
     <h2 id="inputs">Inputs</h2>
-    <!-- <p>Les montages ci-dessous supposent une carte Uno. Les broches se donnent par leur numéro (<code>13</code>) ou, pour les broches analogiques, par leur nom (<code>"A0"</code>).</p> -->
+    <!-- <p>The circuits below assume an Uno board. Specify pins by number (<code>13</code>) or, for analog pins, by name (<code>"A0"</code>).</p> -->
     <section class="component" id="button">
       <h3>Button</h3>
       <h5>Overview</h5>
-      <p>Un bouton fournit une entrée numérique qui indique quand il est appuyé, relâché ou maintenu.</p>
+      <p>A button provides a digital input that indicates when it is pressed, released, or held down.</p>
       <h5>Wiring</h5>
       <p>You can use any digital pins with the button.</p>
       <img 
         src="images/montage-button.png"
-        alt="illustration led"
+        alt="Button wiring diagram"
         class="full-width green-border"
       > 
       <h5>Code</h5>
-      <p>Voici comment créer un bouton dans votre sketch p5.js</p>
+      <p>Here is how to create a button in your p5.js sketch.</p>
       <pre><code class="language-javascript">
       let button;
 
@@ -187,7 +192,7 @@
           button = new five.Button({ pin: 2, isPullup: true });
       }
       </code></pre>
-      <p>Pour savoir si le bouton est actuellement clické, vous pouvez simplement vérifier la propriété .isDown : </p>
+      <p>To check whether the button is currently pressed, you can simply check the .isDown property:</p>
       <pre><code>
       function draw(){
         if(button.isDown){
@@ -195,7 +200,7 @@
         }
       }
       </code></pre>
-      <p>Sinon, vous pouvez écouter les événements suivants: </p>
+      <p>Alternatively, you can listen for the following events:</p>
       <pre><code>
 
         function setup(){
@@ -220,53 +225,125 @@
 
       <h5>Advanced use</h5>
       <ul class="api">
-        <li><strong>Options</strong> : <code>pin</code>, <code>isPullup</code> (défaut <code>false</code>), <code>invert</code>, <code>holdtime</code> (500 ms)</li>
-        <li><strong>Événements</strong> : <code>"press"</code> (ou <code>"down"</code>), <code>"release"</code> (ou <code>"up"</code>), <code>"hold"</code> (répété tant que le bouton est maintenu) ; propriété <code>isDown</code></li>
+        <li><strong>Options</strong>: <code>pin</code>, <code>isPullup</code> (default <code>false</code>), <code>invert</code>, <code>holdtime</code> (500 ms)</li>
+        <li><strong>Events</strong>: <code>"press"</code> (or <code>"down"</code>), <code>"release"</code> (or <code>"up"</code>), <code>"hold"</code> (repeated while the button is held down);</li>
+        <li><strong>Property</strong> : <code>isDown</code></li>
       </ul>
     </section>
 
     <section class="component" id="sensor">
       <h3>Sensor</h3>
       <h5>Overview</h5>
-      <p>Le composant <code>Sensor</code> lit une entrée analogique ou numérique et peut signaler ses changements.</p>
-      <p>La classe sensor permet de travailler avec les composants suivants : potentiometer, photoresistor, ball switch and microphone.</p>
+      <p>The <code>Sensor</code> component reads an analog or digital input and can report changes.</p>
+      <p>The Sensor class works with the following components: potentiometer, photoresistor, ball switch, and microphone.</p>
       <p class="callout warning">It doesn't include IR receiver, DHT11, TMP36, ultrasonic sensor and RFID module.</p>
       <h5>Wiring</h5>
       <img 
         src="images/montage-sensor.png"
-        alt="illustration sensors"
+        alt="Sensor wiring diagram"
         class="full-width green-border"
       > 
       <h5>Code</h5>
-      <pre><code class="language-javascript">const pot = new five.Sensor("A0");
-      pot.on("change", (value) =&gt; console.log(value));   // 0 à 1023
+      <p>The following code works with analog sensors, like the potentiometer, photoresistor and microphone.</p>
+      <pre><code class="language-javascript">
+      let potentiometer;              // a variable to store the sensor
+      let currentPotValue = 0;        // a variable to store the sensor value
 
-      // dans draw() :
-      // const x = map(pot.raw, 0, 1023, 0, width);
+      function setup(){
 
-      const pct = new five.Sensor({ pin: "A0", threshold: 5, scale: [0, 100] });  // valeur déjà mise à l'échelle
-      const sw  = new five.Sensor({ pin: 7, type: "digital" });                   // entrée numérique</code></pre>
+        potentiometer = new five.Sensor("A0");  // potentiometer on analog pin A0
+
+        // every time the sensor value "changes" it triggers the following event
+        potentiometer.on("change", function(latestvalue){
+          /* The value that the sensor sends us exists only within 
+          the function's scope. We need to “store” it in a globally 
+          accessible variable. */
+          currentPotValue = latestvalue;        
+        });
+
+      }
+
+      function draw(){
+
+        circle(width/2, height/2, currentPotValue); // use potentiometer value as
+                                                    // circle diameter
+      }
+      </code></pre>
+      <p>The ballswitch is a digital sensor. It works bit differently. When creating the sensor object, we add a “type” parameter to specify that it is a digital sensor. The default value is “analog,” which is why we don't need to set it for the potentiometer, for example. </p>
+      <pre><code>
+        let ballswitch;
+        let ballswitchState = 0;
+
+        function setup(){
+          ballswitch  = new five.Sensor({ pin: 2, type: "digital" });  // digital pin
+
+          ballswitch.on("change", function(value){
+            ballswitchState = value;
+          });
+        }
+
+        
+
+      </code></pre>
+
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>pin</code>, <code>type</code> (<code>"analog"</code> ou <code>"digital"</code>), <code>threshold</code> (variation minimale pour <code>"change"</code>), <code>scale</code></li><li><strong>Propriétés</strong> : <code>raw</code> (0-1023), <code>value</code> ; <strong>Événements</strong> : <code>"data"</code> (chaque mesure), <code>"change"</code></li></ul>
+      <p>Each sensor reads values within a predefined range. For example, a potentiometer has a value range between 0 and 1023. However, you can add an additional parameter when creating the object so that it automatically calculates a cross-multiplication to provide values within a target range—for example, between 0 and 255 to obtain an RGB value.</p>
+      <pre><code>
+        potentiometer = new five.Sensor({ 
+                                          pin: "A0", 
+                                          threshold: 5,       // threshold for the "change" event.
+                                          scale: [0, 100]     // new expected scale of value. 
+                                        });
+      </code></pre>
+      
+      <ul class="api">
+        <li><strong>Options</strong>: <code>pin</code>, <code>type</code> (<code>"analog"</code> or <code>"digital"</code>), <code>threshold</code> (minimum change required for <code>"change"</code>), <code>scale</code></li>
+        <li><strong>Properties</strong>: <code>raw</code> (0-1023), <code>value</code>;</li>
+        <li><strong>Events</strong>: <code>"data"</code> (every reading), <code>"change"</code></li>
+      </ul>
     </section>
 
     <section class="component" id="joystick">
       <h3>Joystick</h3>
       <h5>Overview</h5>
-      <p>Le joystick lit deux axes analogiques et fournit des coordonnées <code>x</code> et <code>y</code>.</p>
+      <p>The joystick reads two analog axes and provides <code>x</code> and <code>y</code> values. Each axis ranges from -1 to 1, with 0 representing the joystick's neutral position.</p>
+      <p>You can also read the button on the joystick. It works like a regular <a href="#button">button</a>.</p>
       <h5>Wiring</h5>
-      <p class="wire">Module joystick analogique : VRx→A0, VRy→A1, +5V→5 V, GND→GND (le bouton SW se lit avec un <code>Button</code>).</p>
+      <img 
+        src="images/montage-joystick.png"
+        alt="Joystick wiring diagram"
+        class="full-width green-border"
+      > 
       <h5>Code</h5>
-      <pre><code class="language-javascript">const joy = new five.Joystick({ pins: ["A0", "A1"] });
+      <pre><code class="language-javascript">
+        let joystick;
+        let joystick-button;
 
-      function draw() {
-        background(240);
-        circle(width / 2 + joy.x * 100, height / 2 + joy.y * 100, 30);   // x et y vont de -1 à 1
-      }
+        function setup(){
 
-      joy.on("change", ({ x, y }) =&gt; console.log(x, y));</code></pre>
+          joystick = new five.Joystick({ pins: ["A0", "A1"] }); // [ "X axis pin", "Y axis pin"]
+          joystick-button = new five.Button({ pin:2, isPullup: true });
+
+        }
+
+        function draw() {
+          background(240);
+
+          circle( width / 2 + joystick.x * 100,     // we have acces to joystick.x property to get x value
+                  height / 2 + joystick.y * 100,    // same for y axis
+                  30);
+
+          // 👨🏻‍🏫 x and y values are between -1 and 1.
+          //   thats why I multiply axis value by 100
+
+        }
+      </code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>pins</code> (<code>[X, Y]</code>), <code>invertX</code>, <code>invertY</code>, <code>deadband</code> (0.03), <code>autoCalibrate</code> (le centre est la première lecture : laissez le manche au repos à la connexion)</li><li><strong>Propriétés</strong> : <code>x</code>, <code>y</code> ; <strong>Méthodes</strong> : <code>calibrate()</code> ; <strong>Événements</strong> : <code>"data"</code>, <code>"change"</code></li></ul>
+      <ul class="api">
+        <li><strong>Options</strong>: <code>pins</code> (<code>[X, Y]</code>), <code>invertX</code>, <code>invertY</code>, <code>deadband</code> (0.03), <code>autoCalibrate</code> (the first reading is the center: leave the stick at rest when connecting)</li>
+        <li><strong>Properties</strong>: <code>x</code>, <code>y</code>;</li> 
+        <li><strong>Methods</strong>: <code>calibrate()</code>;</li>
+        <li><strong>Events</strong>: <code>"data"</code>, <code>"change"</code></li></ul>
     </section>
 
     <h2 id="outputs">Outputs</h2>
@@ -274,7 +351,7 @@
     <section class="component" id="led">
       <h3>Led</h3>
       <h5>Overview</h5>
-      <p>Une LED peut être pilotée en tout-ou-rien (digital) ou avec une luminosité variable (PWM).</p>
+      <p>An LED can be controlled as an on/off output (digital) or with variable brightness (PWM).</p>
       <div class="flex row small-gap">
         <img 
           src="images/pins-led.png"
@@ -283,9 +360,9 @@
         >
         <div>
           <p><strong>Digital</strong></p>
-          <p>Si votre led ne doit faire que du "on/off", vous pouvez utiliser n'importe quel pin digital en 2 et 13.</p>
+          <p>If your LED only needs to turn on and off, you can use any digital pin from 2 to 13.</p>
           <p><strong>PWM</strong></p>        
-          <p>Si vous avez besoin de modifier la luminosité de votre led, utilisez un pin avec un tilde ~, pour utiliser le PWM.</p>
+          <p>If you need to change your LED's brightness, use a pin marked with a tilde (~) to use PWM.</p>
         </div>
       </div>   
       
@@ -310,157 +387,168 @@
       </code></pre>
       <h5>Advanced use</h5> 
       <ul class="api">
-        <li><strong>Options</strong> : <code>pin</code>, <code>isAnode</code></li>
-        <li><strong>Méthodes</strong> : <code>on()</code>, <code>off()</code>, <code>toggle()</code>, <code>brightness(0-255)</code>, <code>blink(ms)</code>, <code>pulse(ms)</code>, <code>stop()</code> ; propriété <code>isOn</code></li>
+        <li><strong>Options</strong>: <code>pin</code>, <code>isAnode</code></li>
+        <li><strong>Methods</strong>: <code>on()</code>, <code>off()</code>, <code>toggle()</code>, <code>brightness(0-255)</code>, <code>blink(ms)</code>, <code>pulse(ms)</code>, <code>stop()</code>;</li>
+        <li><strong>Property</strong>: <code>isOn</code></li>
       </ul>
     </section>
 
     <section class="component" id="rgb">
       <h3>Led.RGB</h3>
       <h5>Overview</h5>
-      <p>Une LED RGB regroupe trois canaux de couleur rouge, vert et bleu, réglables ensemble pour produire différentes couleurs.</p>
+      <p>An RGB LED combines red, green, and blue channels that can be adjusted to produce different colors.</p>
       <h5>Wiring</h5>
-      <p class="wire">LED RGB à cathode commune : R→9, G→10, B→11 (chacune avec 220 Ω), cathode à GND. Anode commune : reliez à 5 V et ajoutez <code>isAnode: true</code>.</p>
+      <img 
+        src="images/montage-ledRGB.png"
+        alt="illustration led RGB"
+        class="full-width green-border"
+      > 
       <h5>Code</h5>
-      <pre><code class="language-javascript">const rgb = new five.Led.RGB([9, 10, 11]);
-      rgb.color("#ff8800");   // hexadécimal, nom CSS ("tomato"), [r, g, b] ou { red, green, blue }
-      rgb.intensity(50);      // 0 à 100 %
-      rgb.strobe(200);        // stroboscope
-      rgb.stop().off();</code></pre>
+      <pre><code class="language-javascript">
+        let rgb;
+
+        function setup(){
+          rgb = new five.Led.RGB([3, 5, 6]);  // [red, green, blue] pins
+
+          rgb.color("#ff8800");   // hexadecimal or [r, g, b]
+          rgb.intensity(50);      // 0 to 100 %
+          rgb.off();              // self explenatory
+        }
+      </code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>pins</code> (<code>[R, G, B]</code>), <code>isAnode</code></li><li><strong>Méthodes</strong> : <code>color()</code>, <code>on()</code>, <code>off()</code>, <code>intensity(0-100)</code>, <code>strobe(ms)</code>, <code>stop()</code></li></ul>
+      <ul class="api">
+        <li><strong>Options</strong>: <code>pins</code> (<code>[R, G, B]</code>), <code>isAnode</code></li>
+        <li><strong>Methods</strong>: <code>color()</code>, <code>on()</code>, <code>off()</code>, <code>intensity(0-100)</code>, <code>strobe(ms)</code>, <code>stop()</code></li>
+      </ul>
     </section>
 
     <section class="component" id="servo">
       <h3 >Servo</h3>
       <h5>Overview</h5>
-      <p>Un servomoteur permet de positionner son axe à un angle donné.</p>
+      <p>A servo lets you position its shaft at a specific angle.</p>
       <h5>Wiring</h5>
-      <p class="wire">Fil de signal sur la broche 6, rouge à 5 V, marron/noir à GND (un gros servo demande une alimentation externe, masses reliées).</p>
+      <img 
+        src="images/montage-servo.png"
+        alt="illustration servo"
+        class="full-width green-border"
+      > 
       <h5>Code</h5>
-      <pre><code class="language-javascript">const servo = new five.Servo(6);
+      <pre><code class="language-javascript">
+      let servo;
 
-      servo.to(90);          // angle direct
-      servo.to(180, 1000);   // rejoint 180° en 1 seconde
-      servo.min();  servo.max();  servo.center();
+      function setup(){
+        servo = new five.Servo(3);
 
-      function mouseMoved() { servo.to(map(mouseX, 0, width, 0, 180)); }</code></pre>
+        servo.to(90);          // go to custom angle in degree
+        servo.to(180, 1000);   // go to 180° in 1 second (1000ms)
+
+        servo.min();           // angle to min (0°)
+        servo.max();           // angle to max (180°)
+        servo.center();        // angle to center (90°)
+      }
+      </code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>pin</code>, <code>range</code> (<code>[0, 180]</code>), <code>pwmRange</code> (<code>[544, 2400]</code>), <code>startAt</code>, <code>invert</code></li><li><strong>Méthodes</strong> : <code>to(angle[, ms])</code>, <code>min()</code>, <code>max()</code>, <code>center()</code>, <code>home()</code>, <code>stop()</code> ; propriété <code>value</code></li></ul>
+      <ul class="api">
+        <li><strong>Options</strong> : <code>pin</code>, <code>range</code> (<code>[0, 180]</code>), <code>pwmRange</code> (<code>[544, 2400]</code>), <code>startAt</code>, <code>invert</code></li>
+        <li><strong>Methods</strong>: <code>to(angle[, ms])</code>, <code>min()</code>, <code>max()</code>, <code>center()</code>, <code>home()</code>, <code>stop()</code>;</li>
+        <li><strong>Properties</strong> : <code>value</code></li>
+      </ul>
     </section>
 
     <section class="component" id="motor">
-      <h3 >Motor</h3>
+      <h3 >[WIP] Motor</h3>
       <h5>Overview</h5>
-      <p>Le composant <code>Motor</code> commande la vitesse et le sens d’un moteur compatible avec un pilote PWM + direction.</p>
+      <p>The <code>Motor</code> component controls the speed and direction of a motor compatible with a PWM + direction driver.</p>
       <h5>Wiring</h5>
-      <p class="wire">Pilote moteur à entrées PWM + direction : PWM→broche 5, DIR→broche 4, alimentation moteur séparée. Avec un L298N ou L293D, il faut deux entrées de direction opposées, ce que ce montage à deux broches ne fournit pas.</p>
+      <img 
+        src="images/montage-motor.png"
+        alt="illustration motor"
+        class="full-width green-border"
+      >
+      <p class="wire">Motor driver with PWM + direction inputs: PWM→pin 5, DIR→pin 4, separate motor power supply. An L298N or L293D requires two opposing direction inputs, which this two-pin setup does not provide.</p>
       <h5>Code</h5>
-      <pre><code class="language-javascript">const motor = new five.Motor([5, 4]);   // [pwm, dir]
+      <pre><code class="language-javascript">
+      const motor = new five.Motor([5, 4]);   // [pwm, dir]
 
-      motor.forward(200);   // vitesse de 0 à 255
+      motor.forward(200);   // speed from 0 to 255
       motor.reverse(120);
       motor.stop();</code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>pins</code> (<code>[pwm, dir]</code>), <code>invertDirection</code></li><li><strong>Méthodes</strong> : <code>forward(v)</code>, <code>reverse(v)</code>, <code>stop()</code>, <code>start(v)</code>, <code>speed(v)</code> (vitesse par défaut : 128)</li></ul>
+      <ul class="api"><li><strong>Options</strong>: <code>pins</code> (<code>[pwm, dir]</code>), <code>invertDirection</code></li><li><strong>Methods</strong>: <code>forward(v)</code>, <code>reverse(v)</code>, <code>stop()</code>, <code>start(v)</code>, <code>speed(v)</code> (default speed: 128)</li></ul>
     </section>
 
     <section class="component" id="piezo">
       <h3>Piezo</h3>
       <h5>Overview</h5>
-      <p>Un piezo passif peut produire des tonalités et jouer une mélodie.</p>
+      <p>A passive piezo buzzer can produce tones and play a melody.</p>
       <h5>Wiring</h5>
-      <p class="wire">Buzzer passif entre la broche 8 et GND.</p>
+      <img 
+        src="images/montage-piezo.png"
+        alt="Piezo wiring diagram"
+        class="full-width green-border"
+      >
       <h5>Code</h5>
-      <pre><code class="language-javascript">const piezo = new five.Piezo(8);
+      <pre><code class="language-javascript">
+        let piezo;
 
-      piezo.tone(440, 300);     // 440 Hz pendant 300 ms (ou une note : "A4")
-      piezo.noTone();
+        function setup(){
+          piezo = new five.Piezo(3);
 
-      piezo.play({
-        tempo: 120,
-        song: [["C4", 1/4], ["E4", 1/4], ["G4", 1/4], [null, 1/4], ["C5", 1/2]]   // null = silence
-      });</code></pre>
+          piezo.tone(440, 300);     // play 440 Hz for 300 ms
+                                    // you can play frequencies between 100 and 900Hz
+          piezo.noTone();           // stop playings
+        }
+        </code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Méthodes</strong> : <code>tone(fréquence|note, ms)</code>, <code>noTone()</code>, <code>play({ song, tempo, beats })</code> (renvoie une Promise)</li></ul>
-      <p class="muted">Limite : Firmata ne sait pas produire de fréquences, la note est générée par le navigateur. Prévoyez des sons simples (environ 100 à 900 Hz) et un rendu imprécis ; le navigateur est très sollicité pendant la note.</p>
+      <ul class="api">
+        <li><strong>Methods</strong>: <code>tone(fréquence|note, ms)</code>, <code>noTone()</code>, <code>play({ song, tempo, beats })</code> (returns a Promise)</li>
+      </ul>
     </section>
 
     <section class="component" id="lcd">
       <h3>LCD (I2C)</h3>
       <h5>Overview</h5>
-      <p>Un écran LCD I2C affiche du texte et permet de positionner le curseur.</p>
+      <p>An I2C LCD displays text and lets you position the cursor.</p>
       <h5>Wiring</h5>
-      <p class="wire">Écran 16×2 avec « backpack » PCF8574 : SDA→A4, SCL→A5 (Uno), VCC→5 V, GND→GND. Si rien ne s’affiche, essayez <code>controller: "PCF8574A"</code> (adresse 0x3F) et réglez le contraste avec la vis du module.</p>
+      <img 
+        src="images/montage-lcd.png"
+        alt="LCD wiring diagram"
+        class="full-width green-border"
+      >
       <h5>Code</h5>
-      <pre><code class="language-javascript">const lcd = new five.LCD({ controller: "PCF8574" });
+      <pre><code class="language-javascript">
+        let lcd; 
 
-      lcd.clear();
-      lcd.print("Bonjour p5.j5");
-      lcd.cursor(1, 0).print("Ligne 2");   // cursor(ligne, colonne), à partir de 0
-      lcd.noBacklight();</code></pre>
+        function setup(){
+          lcd = new five.LCD({ controller: "PCF8574" });
+
+          lcd.clear();                         // remove what is displayed
+          lcd.cursor(0, 0);                    // move the cursor (row, column)
+          lcd.print("hello world!");           // and print on the lcd screen
+          lcd.cursor(1, 0).print("Yo le rap"); // shortened
+        }      
+      </code></pre>
       <h5>Advanced use</h5>
-      <ul class="api"><li><strong>Options</strong> : <code>controller</code> (<code>"PCF8574"</code> ou <code>"PCF8574A"</code>), <code>address</code>, <code>rows</code> (2), <code>cols</code> (16)</li><li><strong>Méthodes</strong> : <code>print()</code>, <code>clear()</code>, <code>cursor(row, col)</code>, <code>home()</code>, <code>on()</code>, <code>off()</code>, <code>backlight()</code>, <code>noBacklight()</code> (appels chaînables, mis en file)</li></ul>
+      <ul class="api">
+        <li><strong>Options</strong>: <code>controller</code> (<code>"PCF8574"</code> or <code>"PCF8574A"</code>), <code>address</code>, <code>rows</code> (2), <code>cols</code> (16)</li>
+        <li><strong>Methods</strong>: <code>print()</code>, <code>clear()</code>, <code>cursor(row, col)</code>, <code>home()</code>, <code>on()</code>, <code>off()</code>, <code>backlight()</code>, <code>noBacklight()</code> (chainable, queued calls)</li>
+      </ul>
     </section>
 
-    <h2 id="callbacks">Callbacks globaux façon p5.js</h2>
-    <p>Comme <code>mousePressed()</code> ou <code>keyPressed()</code>, déclarez ces fonctions (avec le mot-clé <code>function</code>) : elles reçoivent le composant concerné, ce qui permet de les partager entre plusieurs boutons.</p>
+    <!-- <h2 id="callbacks">Global callbacks like p5.js callbacks</h2>
+    <p>Like <code>mousePressed()</code> or <code>keyPressed()</code>, declare these functions (using the <code>function</code> keyword): they receive the relevant component, allowing you to share them across multiple buttons.</p>
     <pre><code class="language-javascript">function buttonPressed(btn)  { console.log("appui sur la broche", btn.pin); }
     function buttonReleased(btn) { }
     function buttonHeld(btn, ms) { }
-    function sensorChanged(sensor) { console.log(sensor.value); }   // Sensor et Light
-    function joystickMoved(joy)  { console.log(joy.x, joy.y); }</code></pre>
+    function sensorChanged(sensor) { console.log(sensor.value); }   // Sensor and Light
+    function joystickMoved(joy)  { console.log(joy.x, joy.y); }</code></pre> -->
 
-    <h2 id="depannage">Dépannage</h2>
-    <ul>
-      <li><strong>Pas de fenêtre de choix du port</strong> : navigateur non compatible, page ouverte en <code>file://</code>, ou <code>connect()</code> appelé hors d’un clic.</li>
-      <li><strong>« Aucune réponse Firmata »</strong> : StandardFirmataPlus n’est pas téléversé, le Moniteur série est ouvert, ou le débit ne vaut pas 57600.</li>
-      <li><strong>Le port n’apparaît pas dans la liste</strong> : essayez un autre câble USB (certains ne transmettent que l’alimentation) ou installez le pilote de la puce USB (CH340 sur les clones).</li>
-      <li><strong>Le composant ne réagit pas</strong> : vérifiez le numéro de broche, la masse commune et, pour <code>pulse()</code> et <code>brightness()</code>, une broche PWM (~).</li>
-      <li><strong>Débogage</strong> : ouvrez la console du navigateur ; <code>board.on("error", console.error)</code> affiche les erreurs de communication.</li>
-    </ul>
     </main>
 
     <footer>
-      <p>p5.j5 v2 · <a href="https://github.com/methio/p5.j5">Code source sur GitHub</a> · inspiré de <a href="https://github.com/monteslu/p5.j5">p5.j5</a> et <a href="https://johnny-five.io/">Johnny-Five</a>.</p>
+      <p>p5.j5 v2 · <a href="https://github.com/methio/p5.j5">Source code on GitHub</a> · inspired by <a href="https://github.com/monteslu/p5.j5">p5.j5</a> and <a href="https://johnny-five.io/">Johnny-Five</a>.</p>
     </footer>
   </div>
-
-<script src="j5.js"></script>
-<script>
-  // Démo de la page : même code que dans la section « Connexion », sans p5.js.
-  const $ = (s) => document.querySelector(s);
-  const board = new five.Board();
-  const led = new five.Led(13);
-  const light = new five.Light("A0");
-  const controls = ["#demo-on", "#demo-off", "#demo-blink"].map($);
-
-  $("#demo-connect").addEventListener("click", async () => {
-    $("#demo-connect").disabled = true;
-    $("#demo-status").textContent = "Connexion…";
-    try {
-      await board.connect();
-    } catch (err) {
-      $("#demo-connect").disabled = false;
-      $("#demo-status").textContent = err.name === "NotFoundError" ? "Aucun port choisi" : "Erreur : " + err.message;
-    }
-  });
-  board.on("ready", () => {
-    $("#demo-status").textContent = "Connecté ✓ (" + board.firmware.name + ")";
-    controls.forEach((b) => (b.disabled = false));
-  });
-  board.on("close", () => {
-    $("#demo-status").textContent = "Déconnecté";
-    $("#demo-connect").disabled = false;
-    controls.forEach((b) => (b.disabled = true));
-  });
-  board.on("error", (err) => ($("#demo-status").textContent = "Erreur : " + err.message));
-  light.on("data", () => ($("#demo-light").textContent = light.level + " %"));
-  $("#demo-on").addEventListener("click", () => led.on());
-  $("#demo-off").addEventListener("click", () => led.off());
-  $("#demo-blink").addEventListener("click", () => led.blink(300));
-</script>
-
   <!-- load icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -471,6 +559,50 @@
       })
     );
     hljs.highlightAll();
+
+    const menuLinks = [...document.querySelectorAll('#left-col a[href^="#"]')];
+    const menuTargets = menuLinks
+      .map((link) => ({
+        link,
+        target: document.getElementById(link.getAttribute("href").slice(1)),
+      }))
+      .filter(({ target }) => target);
+
+    function setActiveMenuLink(activeTarget) {
+      menuTargets.forEach(({ link, target }) => {
+        const isActive = target === activeTarget;
+        link.classList.toggle("active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function updateActiveMenuLink() {
+      const activationLine = window.innerHeight * 0.35;
+      const current = menuTargets
+        .filter(({ target }) => target.getBoundingClientRect().top <= activationLine)
+        .at(-1);
+      setActiveMenuLink(current?.target ?? menuTargets[0]?.target);
+    }
+
+    let activeMenuFrame = null;
+    function scheduleActiveMenuUpdate() {
+      if (activeMenuFrame !== null) return;
+      activeMenuFrame = window.requestAnimationFrame(() => {
+        updateActiveMenuLink();
+        activeMenuFrame = null;
+      });
+    }
+
+    window.addEventListener("scroll", scheduleActiveMenuUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveMenuUpdate);
+    menuTargets.forEach(({ link, target }) => {
+      link.addEventListener("click", () => setActiveMenuLink(target));
+    });
+    updateActiveMenuLink();
   </script>
 </body>
 </html>

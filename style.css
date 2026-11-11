@@ -41,6 +41,11 @@
     border: solid 1px #9f0808;
 }
 
+.infos{
+    background-color: #033b5e;
+    border: solid 1px #08109f;
+}
+
 
 body { 
     background:var(--bg); 
@@ -93,7 +98,7 @@ h2 {
 h3{ 
     font-size: 24px;
     font-weight: 800;
-    margin-top: 32px; 
+    margin-top: 40px; 
     color: #fff;
 
 }
@@ -118,6 +123,10 @@ h5{
     margin-top: 24px;
 }
 
+p{
+    margin: 8px 0px;
+}
+
 a { 
     color: var(--txt);
     text-decoration: none; 
@@ -132,6 +141,13 @@ a:hover{
     background-color: var(--bg-600);
     border: 1px solid var(--bg-700);
 
+}
+
+#left-col a.active,
+#left-col a[aria-current="location"] {
+    color: var(--green);
+    background-color: var(--bg-600);
+    border-color: var(--bg-700);
 }
 
 nav { 
@@ -208,4 +224,3 @@ footer {
     margin: 48px auto; 
     color: var(--muted); 
 }
-
